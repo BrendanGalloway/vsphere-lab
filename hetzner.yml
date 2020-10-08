@@ -1,0 +1,19 @@
+name: hetzner
+sealedSecrets:
+  version: v0.10.0
+  certificate:
+    cert: ca.crt
+    privateKey: ca.key
+    password: !!env CA_KEK
+gitops:
+  - gitUrl: !!template https://{{ getenv "GITHUB_TOKEN" }}@github.com/flanksource/vsphere-lab.git
+    gitPath: ./build-cluster
+    fluxVersion: 1.20.0
+ca:
+  cert: ca.crt
+  privateKey: ca.key
+  password: $CA_KEK
+ingressCA:
+  cert: ca.crt
+  privateKey: ca.key
+  password: $CA_KEK
