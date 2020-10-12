@@ -3,49 +3,29 @@ kind: Namespace
 metadata:
   name: github-runner
 ---
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
 metadata:
-  name: github-runner
+  name: flanksource-ci-runner-deployment
   namespace: github-runner
-  labels:
-    app: github-runner
 spec:
-  # The replicas is tuneable, but at least 1 is required
-  replicas: 4
-  selector:
-    matchLabels:
-      app: github-runner
+  replicas: 2
   template:
-    metadata:
-      labels:
-        app: github-runner
-    spec:
-      containers:
-        - name: github-runner
-          image: flanksource/github-runner:v.0.1.0
-          env:
-            - name: GITHUB_OWNER
-              value: flanksource
-            - name: GITHUB_REPOSITORY
-              value: karina
-            - name: GITHUB_PAT
-              valueFrom:
-                secretKeyRef:
-                  name: gh-pats
-                  key: pat-fs-karina
-            - name: GIT_API_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: gh-pats
-                  key: pat-fs-karina
-            - name: AWS_ACCESS_KEY_ID
-              valueFrom:
-                secretKeyRef:
-                  name: gh-pats
-                  key: aws-access-key-id
-            - name: AWS_SECRET_ACCESS_KEY
-              valueFrom:
-                secretKeyRef:
-                  name: gh-pats
-                  key: aws-secret-access-key
+     spec:
+      image: flanksource/build-tools:v0.10.2
+      organization: flanksource
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: HorizontalRunnerAutoscaler
+metadata:
+  name: flanksource-runner-deployment-autoscaler
+spec:
+  scaleTargetRef:
+    name: flanksource-ci-runner-deployment
+  minReplicas: 2
+  maxReplicas: 8
+  metrics:
+  - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
+    repositoryNames:
+    - flanksource/karina
+
