@@ -33,7 +33,7 @@ sudo openvpn config.openvpn
 3. Run
 
 ```shell
-platform-cli kubeconfig admin -c green.yml -c lab.yml > green-admin.yml`
+karina kubeconfig admin -c green.yml -c lab.yml > green-admin.yml
 export KUBECONFIG=green-admin.yml
 kubectl get nodes
 ```
