@@ -9,10 +9,25 @@ metadata:
   name: flanksource-ci-runner-deployment
   namespace: github-runner
 spec:
-  replicas: 2
+  replicas: 4
   template:
-     spec:
+    spec:
       image: flanksource/build-tools:v0.10.2
+      volumeMounts:
+        - mountPath: /lib/modules
+          name: modules
+          readOnly: true
+        - mountPath: /sys/fs/cgroup
+          name: cgroup
+      volumes:
+        - name: modules
+          hostPath:
+            path: /lib/modules
+            type: Directory
+        - name: cgroup
+          hostPath:
+            path: /sys/fs/cgroup
+            type: Directory
       organization: flanksource
 ---
 apiVersion: actions.summerwind.dev/v1alpha1
@@ -22,10 +37,9 @@ metadata:
 spec:
   scaleTargetRef:
     name: flanksource-ci-runner-deployment
-  minReplicas: 2
+  minReplicas: 4
   maxReplicas: 8
   metrics:
-  - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
-    repositoryNames:
-    - flanksource/karina
-
+    - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
+      repositoryNames:
+        - flanksource/karina
