@@ -12,13 +12,40 @@ spec:
   replicas: 4
   template:
     spec:
-      image: flanksource/build-tools:v0.10.2
-      volumeMounts:
-        - mountPath: /lib/modules
-          name: modules
-          readOnly: true
-        - mountPath: /sys/fs/cgroup
-          name: cgroup
+      labels:
+        - self-hosted
+      containers:
+        - name: runner
+          image: flanksource/build-tools:v0.10.7
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /runner/_work
+              name:      work
+            - mountPath: /var/run
+              name:      docker
+            - mountPath: /lib/modules
+              name:      modules
+              readOnly:  true
+            - mountPath: /sys/fs/cgroup
+              name:      cgroup
+          securityContext:
+            runAsGroup: 0
+        - name: docker
+          image: docker:dind
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /runner/_work
+              name:      work
+            - mountPath: /var/run
+              name:      docker
+            - mountPath: /lib/modules
+              name:      modules
+              readOnly:  true
+            - mountPath: /sys/fs/cgroup
+              name:      cgroup
+          securityContext:
+            privileged: true
+          args: ["--dns", "8.8.8.8"]
       volumes:
         - name: modules
           hostPath:
@@ -42,4 +69,4 @@ spec:
   metrics:
     - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
       repositoryNames:
-        - flanksource/karina
+        - karina
