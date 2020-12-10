@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 bases:
-  - github.com/flanksource/actions-runner-controller/config/default?ref=v0.9.5-flanksource
+  - github.com/flanksource/actions-runner-controller/config/default?ref=v0.15.0-flanksource
 resources:
   - github-runner-deployment.yaml
   - runner-secrets.yaml
