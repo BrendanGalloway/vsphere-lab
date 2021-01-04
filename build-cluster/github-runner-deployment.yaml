@@ -16,7 +16,7 @@ spec:
         - self-hosted
       containers:
         - name: runner
-          image: flanksource/build-tools:v0.10.7
+          image: flanksource/build-tools:v0.10.8
           imagePullPolicy: Always
           volumeMounts:
             - mountPath: /runner/_work
