@@ -60,6 +60,8 @@ spec:
             path: /sys/fs/cgroup
             type: Directory
       organization: flanksource
+      dockerdWithinRunnerContainer: false
+      dockerenabled: true
       env:
         - name: RUNNER_NAME
           value: flanksource-runner
