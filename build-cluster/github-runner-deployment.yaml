@@ -62,9 +62,6 @@ spec:
       organization: flanksource
       dockerdWithinRunnerContainer: false
       dockerenabled: true
-      env:
-        - name: RUNNER_NAME
-          value: flanksource-runner
 ---
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: HorizontalRunnerAutoscaler
