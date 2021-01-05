@@ -60,9 +60,8 @@ spec:
             path: /sys/fs/cgroup
             type: Directory
       organization: flanksource
-      env:
-        - name: RUNNER_NAME
-          value: flanksource-runner
+      dockerdWithinRunnerContainer: false
+      dockerenabled: true
 ---
 apiVersion: actions.summerwind.dev/v1alpha1
 kind: HorizontalRunnerAutoscaler
