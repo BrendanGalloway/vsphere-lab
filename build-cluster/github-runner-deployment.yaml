@@ -26,7 +26,6 @@ spec:
               name:      cgroup
           securityContext:
             privileged: true
-          args: ["--dns", "8.8.8.8"]
       volumes:
         - name: modules
           hostPath:
