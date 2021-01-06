@@ -16,32 +16,9 @@ spec:
         - self-hosted
       containers:
         - name: runner
-          image: flanksource/build-tools:v0.10.9
+          image: flanksource/build-tools:v0.11.0
           imagePullPolicy: Always
           volumeMounts:
-            - mountPath: /runner/_work
-              name:      work
-            - mountPath: /runner/externals
-              name:      externals
-            - mountPath: /certs/client
-              name:      certs-client
-            - mountPath: /lib/modules
-              name:      modules
-              readOnly:  true
-            - mountPath: /sys/fs/cgroup
-              name:      cgroup
-          securityContext:
-            runAsGroup: 0
-        - name: docker
-          image: docker:dind
-          imagePullPolicy: Always
-          volumeMounts:
-            - mountPath: /runner/_work
-              name:      work
-            - mountPath: /runner/externals
-              name:      externals
-            - mountPath: /certs/client
-              name:      certs-client
             - mountPath: /lib/modules
               name:      modules
               readOnly:  true
@@ -60,7 +37,7 @@ spec:
             path: /sys/fs/cgroup
             type: Directory
       organization: flanksource
-      dockerdWithinRunnerContainer: false
+      dockerdWithinRunnerContainer: true
       dockerenabled: true
 ---
 apiVersion: actions.summerwind.dev/v1alpha1
