@@ -1,0 +1,32 @@
+extra:
+  users:
+    - name: brendan
+      gecos: Brendan Galloway
+      uid: 2310
+      sudo:  ALL=(ALL) NOPASSWD:ALL
+      shell: /bin/bash
+      ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC/ZPJsfeibt2xGxccgD5lQwHX9pVo7XaHI1NBEL11v+aLANDZH0CunyEhuU+YOc3CZ4hx2BYvQ9ndL9RgvjY8G1Mzzh1Jq3d5KhOuvr3JIb6gunBA0yiJ7HCwbUSLM2/PHgzmGfmtqFme2f4OrJ+iWB7BXV9jG3QwSl7A4hiiYUpE9EO6583f2Nr0viL+7Kkfr9LhoAS0xtGiABIkBIvBtgMrYlK/t2TKGE50BwnoHpunStgpKVNVYrCAw0XYwdZsvTvIB/HeL0PjEkSWA+AgE2DgySxRUDzzbFDE7xIEQ0QU4ZdYetpp/6ie5mM/TH9erPz+C4ecMflhf0HL1lUbzkSBRsPKWG+/rymU7JOuJ4ByvSSM24dIf329bG1kIAcIXG90+cJel2o3fkBOBOXtHIzpEBnOQx4mHeuSI5O8DEgGa1eQXSyOkDC4guDHJon0ZpDvQ8hdLgA/tRIe/iHrSm7uZMBLnzRmYXC6UMBCwG0cloRsfNdFPCtHsIc+AVKc=
+    - name:  toni
+      gecos: Teodor Pripoae
+      sudo:  ALL=(ALL) NOPASSWD:ALL
+      shell: /bin/bash
+      uid: 2307
+      ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC7n+3k3a9idR/BeBhV7S1Uc2F3AEL0kib1g8JnwD2Ns9ZPb9M0DVXasvLKM6CR/x+e3juRFQ2LvO/vQ86zkv+OGcgVF5YpRHepu1ieIItt0PAM7CtYe348p9eXxGnv4TBNeOVsRDzQnye8Z32o4K/Y7MI8bXijBnhAU6NksujHneohHJ/jhCQ4ESSryrbak8C2EmOom3AznD6MXdCTScBJhVQyCGbJ5I266PRwBYeN1AlYVp7XBpBv83p5pY9FZm4+fVxjQkPCnASRxHw0xGvJmwt1pTUiS5f34uPBle4lhbJ+mhWgoBRGEc3oegxMcTQIEoho1yhgEGelw2tuQbCj toni@Teodors-MacBook-Pro-2.local
+    - name: p01moshealei
+      gecos: Moshe Immerman
+      sudo:  ALL=(ALL) NOPASSWD:ALL
+      shell: /bin/bash
+      uid: 4115
+      ssh_authorized_keys:
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCziKAEkVy0mxpbJ6ukNUCtehTzBS1dyfzNc7avtvIWK8+fRwGShORxdv5bImU28ZatGpHoWAqpyd8PyFFwM5vlTkm9XW1i4vSjsS3ezejhZ9ganXmbtljdECFQbdwwRVMe8i1D1jD3Yh+bF6vS1S43xNExLmcE7THZIHEj2LUGBAYyXUvbWX2Pd5FDGs0YW9Jae912dEL/YTZczvAKFSYILjvl442K5UNf0ifSVRBSDJQG1IS7NctPUjet2/SeDZdnoQObxXyRNYklc69DNeuhoZAzFpDvke8O+jgWOw3CE2d8IekPY2KLyPmWRJK8UbHX7AeCWzpz8nMVCcY5PKFH
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCtZqUSNnwyTCesiXyTBvTnx3BCrYHw/c3pL/3GcWm2IRw28NrBKz+JeulDtXEoCx/P/mSIUyhy/zdZB7PNSFZJyyQ+0ku4m1obE+ASK7i1wJpOrTA3gDfFN/Ehb75F9D1qVenuLSxqys7sKBCeeHKYXElervRJOzYWYfY3Kg3EWLkFGgrcmPSmeLlEnFCs05F1JbPRGC7kz1FbrlelavZg7JAgB/FwnI2iNpqO/1NnA/Pac2afsbB0XDGO1g21cAOyjJ1iaTesGLkt76d3+x0y0/77tEFPM0rI9z9zqz+zzqubn6yT6P9E6K4j3qYHSJNW8dUwUmb/3s0mX3Ssahw3
+        - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDF4fzNRtQoSJMmp+kgg+K+zGAJu9YKpYSH/96nkIBXbXqZpOmtGnweFTXLcJQHV46YZCCQdcFxjm6e2vUG+6F4e3aGuCQBgiHMcB0/Qsvm2f84bHQpUfxsK5Sa/1wDEe8pyWXuylTbiW1jV+knH3m3b7uijBh4qaHBF8hIqHSOtP5X67NTBcFYuQ8gkiqM519BOxYq/K+A5vFDA62vdErpdjrZbw8A7+VXxzIkDRnztQNo5kVj2+/6UqaGzbSS4pvLszKOlvwB6g9vTAYcdP43NxgzOS42FnMclJfBm+IE6RhdWq8ulyvS5RdahzwEwQOBkxUnkiO4XWQXsaKbhcVl
+    - name: kyle
+      gecos: Kyle Robbertze
+      sudo:  ALL=(ALL) NOPASSWD:ALL
+      shell: /bin/bash
+      uid: 4115
+      ssh_authorized_keys:
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA8TsjCr5EVwzsFC8E3oEy1kB6Xnlre9xiLId5j2ge33

@@ -1,0 +1,16 @@
+commands:
+  - apt-get remove -y kubeadm kubelet kubectl
+  - mkdir -p /opt/consul
+  - chown -R 100:1000 /opt/consul
+  - iptables -A PREROUTING -t nat -p tcp --dport 80 -j REDIRECT --to-ports 8500
+container_runtime:
+  type: docker
+containers:
+  - image: docker.io/consul:1.6.1
+    docker_opts: --net=host
+    args: agent -server -ui -data-dir /opt/consul -datacenter ibm -retry-join "consul-ibm.k8s" -bootstrap-expect 3
+    volumes:
+      - /opt/consul:/opt/consul
+    env:
+      CONSUL_BIND_INTERFACE: ens160
+      CONSUL_CLIENT_INTERFACE: ens160
