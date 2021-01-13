@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: github-runner
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: RunnerDeployment
+metadata:
+  name: flanksource-ci-runner-deployment
+  namespace: github-runner
+spec:
+  replicas: 4
+  template:
+    spec:
+      labels:
+        - vsphere-runner
+      containers:
+        - name: runner
+          image: flanksource/build-tools:v0.11.0
+          imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /lib/modules
+              name:      modules
+              readOnly:  true
+            - mountPath: /sys/fs/cgroup
+              name:      cgroup
+          securityContext:
+            privileged: true
+      volumes:
+        - name: modules
+          hostPath:
+            path: /lib/modules
+            type: Directory
+        - name: cgroup
+          hostPath:
+            path: /sys/fs/cgroup
+            type: Directory
+      organization: flanksource
+      dockerdWithinRunnerContainer: true
+      dockerenabled: true
+---
+apiVersion: actions.summerwind.dev/v1alpha1
+kind: HorizontalRunnerAutoscaler
+metadata:
+  name: flanksource-runner-deployment-autoscaler
+spec:
+  scaleTargetRef:
+    name: flanksource-ci-runner-deployment
+  minReplicas: 4
+  maxReplicas: 8
+  metrics:
+    - type: TotalNumberOfQueuedAndInProgressWorkflowRuns
+      repositoryNames:
+        - karina

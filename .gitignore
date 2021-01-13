@@ -1,4 +1,4 @@
-lab.env
+*.env
 .bin
 .kube
 *.ova
