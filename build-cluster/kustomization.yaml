@@ -1,7 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 bases:
-  - github.com/summerwind/actions-runner-controller.git/config/default?ref=v0.16.0
+  - ../generic-runner
 resources:
   - github-runner-deployment.yaml
-  - runner-secrets.yaml
