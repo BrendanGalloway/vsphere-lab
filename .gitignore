@@ -1,6 +1,7 @@
-lab.env
+*.env
 .bin
 .kube
+*kube.conf
 *.ova
 *.swp
 fs-remote-client.crt
