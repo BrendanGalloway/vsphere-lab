@@ -13,6 +13,8 @@ vsphere:
   hostname: !!env GOVC_FQDN
 consul: 10.175.35.11
 domain: 10.175.35.0.nip.io
+calico:
+  version: v3.8.2
 datacenter: ibm
 dns:
   disabled: true
