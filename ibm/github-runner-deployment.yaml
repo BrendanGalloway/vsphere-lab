@@ -43,6 +43,7 @@ apiVersion: actions.summerwind.dev/v1alpha1
 kind: HorizontalRunnerAutoscaler
 metadata:
   name: flanksource-runner-deployment-autoscaler
+  namespace: github-runner
 spec:
   scaleTargetRef:
     name: flanksource-ci-runner-deployment
