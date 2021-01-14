@@ -8,3 +8,4 @@ fs-remote-client.crt
 fs-remote-client.key
 fs-vpn-ca.crt
 tls-auth.key
+github.key
