@@ -16,7 +16,7 @@ spec:
         - vsphere-runner
       containers:
         - name: runner
-          image: flanksource/build-tools:v0.11.0
+          image: flanksource/build-tools:v0.11.1
           imagePullPolicy: Always
           volumeMounts:
             - mountPath: /lib/modules
