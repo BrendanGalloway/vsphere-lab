@@ -40,9 +40,15 @@ kubectl get nodes
 
 ### Updating environment variables:
 
-1. Decrypt environment vars to `lab.env` and update
-2. Run `sops -e --input-type binary --output-type binary lab.env > lab.enc.env`
-3. Commit `lab.enc.env` NEVER COMMIT `lab.env`
+1. Decrypt environment vars to `lab.env`: `sops -d lab.enc.env > lab.env`
+2. Update
+3. Get the value for the `sops_kms__list_0__map_arn` from the original
+   encrypted file:
+   ```
+   export KMS_ARN=$(grep sops_kms__list_0__map_arn lab.enc.env | awk '{split($0,a,"="); print a[2]}')
+   ````
+3. Run `sops -e -k $KMS_ARN --input-type dotenv --output-type dotenv lab.env > lab.enc.env`
+4. Commit `lab.enc.env` NEVER COMMIT `lab.env`
 
 ### Lab Network Topology
 
