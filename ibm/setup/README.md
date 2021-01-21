@@ -15,7 +15,7 @@ Someone with rights must click 'enable SSL VPN access' for you once registered
 
 ## Check VCenter/NSX Logins
 
-URLS and login details are in passsword store under vc4m-vc and vcs4m-nsx
+URLS and login details are in passsword store under vcs4m-vc and vcs4m-nsx
 
 ## Load env vars
 
