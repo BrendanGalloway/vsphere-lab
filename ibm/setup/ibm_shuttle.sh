@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sshuttle --dns -r flanksource@10.175.106.100 10.175.35.0/24
+sops exec-env vpn.enc.env `sshuttle --dns -r $SSH_USER@$SSH_JUMP_HOST $VPN_NETWORK`
