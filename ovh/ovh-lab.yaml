@@ -7,7 +7,7 @@ sealedSecrets:
     password: !!env CA_KEK
 gitops:
   - gitUrl: !!template https://{{ getenv "GITHUB_TOKEN" }}@github.com/flanksource/vsphere-lab.git
-    gitPath: ./build-cluster
+    gitPath: ./ovh
     fluxVersion: 1.20.0
 ca:
   cert: ca.crt
