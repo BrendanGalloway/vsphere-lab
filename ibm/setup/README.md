@@ -22,6 +22,7 @@ URLS and login details are in passsword store under vcs4m-vc and vcs4m-nsx
 Setup [AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) for vsphere account (details in password store, search for AWS KMS Key)
 
 Install [sops](https://github.com/mozilla/sops/releases) 
+Install [sshuttle](https://sshuttle.readthedocs.io/en/stable/overview.html)
 
 ## Connect to jump host
 
