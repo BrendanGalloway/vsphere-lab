@@ -44,11 +44,11 @@ master:
   count: 3
   cpu: 2
   memory: 4
-  disk: 20
+  disk: 50
   network: !!env GOVC_NETWORK
   cluster: !!env GOVC_CLUSTER
   prefix: m
-  template: TPL-KUBEADM-V1.18.6--12Jan21-143253
+  template: TPL-KUBEADM-V1.18.6-c5e2dc5-03Feb21-113641
 workers:
   worker-group-a:
     prefix: w
@@ -57,5 +57,5 @@ workers:
     count: 3
     cpu: 2
     memory: 4
-    disk: 20
-    template: TPL-KUBEADM-V1.18.6--12Jan21-143253
+    disk: 200
+    template: TPL-KUBEADM-V1.18.6-c5e2dc5-03Feb21-113641
